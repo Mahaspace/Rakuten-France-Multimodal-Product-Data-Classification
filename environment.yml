@@ -1,0 +1,29 @@
+name: ramp-rakuten-product-classification
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - scikit-learn
+  - scipy
+  - pandas
+  - matplotlib
+  - seaborn
+
+  # Extra requirements
+  # - tensorflow-gpu
+  # - pytorch
+  # - keras
+  # - lightgbm
+
+  - pip
+  - pip:
+    - osfclient
+    - ramp-workflow
+    - ramp-utils
+
+
+#     Extra requirements pip
+#     - xgboost
+#     - catboost
+#     - zipfile
