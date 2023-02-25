@@ -15,7 +15,6 @@ url = ["https://drive.google.com/uc?export=download&id=1gUMr9ltyFB5P2fHsM-tlJfO3
 
 
 public_path = "./data/public/"
-raw_path = "./data/raw/"
 private_path = "./data/"
 
 file_names = ['X_train.csv', 'Y_train.csv'] 
