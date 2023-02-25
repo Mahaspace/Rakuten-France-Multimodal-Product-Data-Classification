@@ -23,6 +23,5 @@ def join_data(X, Y):
 df_public_train = join_data(X_train, Y_train)
 df_public_test = join_data(X_test, Y_test)
 
-    
 df_public_train.to_csv(os.path.join('data', 'public', 'train.csv'), index=False)
 df_public_test.to_csv(os.path.join('data', 'public', 'test.csv'), index=False)
