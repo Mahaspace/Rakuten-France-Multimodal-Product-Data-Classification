@@ -4,17 +4,16 @@ import os
 import requests
 from sklearn.model_selection import train_test_split
 
-
 import os
 
 # file source:
 # https://www.kaggle.com/datasets/moussasacko/rakuten-france-multimodal-product-classification?resource=download
-url = ["https://drive.google.com/uc?export=download&id=1gUMr9ltyFB5P2fHsM-tlJfO3PWMxx25k"
-, "https://drive.google.com/uc?export=download&id=1Y3XLmowrwstA4OCgsvopnhuSDJBRBwH1"]
+url = ["https://drive.google.com/uc?export=download&id=1gUMr9ltyFB5P2fHsM-tlJfO3PWMxx25k","https://drive.google.com/uc?export=download&id=1Y3XLmowrwstA4OCgsvopnhuSDJBRBwH1"]
 
 
 
 public_path = "./data/public/"
+raw_path = "./data/raw/"
 private_path = "./data/"
 
 file_names = ['X_train.csv', 'Y_train.csv'] 
@@ -51,7 +50,7 @@ def split_data(X, Y, test_size=0.2, random_state=57):
 X_train, X_test, Y_train, Y_test = split_data(X, Y)
 
 def join_data(X, Y):
-     return pd.concat([X, Y], axis=1)
+     return pd.concat([X, Y.iloc[:,1]], axis=1)
     
 df_public_train = join_data(X_train, Y_train)
 df_public_test = join_data(X_test, Y_test)
