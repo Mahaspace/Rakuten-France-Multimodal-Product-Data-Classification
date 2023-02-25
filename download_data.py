@@ -4,9 +4,8 @@ import os
 from sklearn.model_selection import train_test_split
 
 
-X = pd.read_csv(os.path.join('data', 'X_train.csv'))
-Y = pd.read_csv(os.path.join('data', 'Y_train.csv'))
-
+X = pd.read_csv(os.path.join('data', 'raw','X_train.csv'))
+Y = pd.read_csv(os.path.join('data', 'raw','Y_train.csv'))
 # 2 - Perform any data cleaning and split into private train/test subsets
 def split_data(X, Y, test_size=0.2, random_state=57):
     X_test, X_train, Y_test, Y_train = train_test_split(X, Y, test_size=test_size, random_state=random_state)
@@ -23,5 +22,5 @@ def join_data(X, Y):
 df_public_train = join_data(X_train, Y_train)
 df_public_test = join_data(X_test, Y_test)
 
-df_public_train.to_csv(os.path.join('data', 'public', 'train.csv'), index=False)
-df_public_test.to_csv(os.path.join('data', 'public', 'test.csv'), index=False)
+df_public_train.to_csv(os.path.join('data', 'public','train.csv'), index=False)
+df_public_test.to_csv(os.path.join('data','public',  'test.csv'), index=False)
