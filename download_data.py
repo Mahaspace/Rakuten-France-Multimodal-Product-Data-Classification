@@ -15,11 +15,12 @@ url = ["https://drive.google.com/uc?export=download&id=1gUMr9ltyFB5P2fHsM-tlJfO3
 
 
 public_path = "./data/public/"
-
+raw_path = "./data/raw/"
 private_path = "./data/"
 
 file_names = ['X_train.csv', 'Y_train.csv'] 
 file_path = [os.path.join(private_path, file_name) for file_name in file_names]
+
 try:
     os.stat(private_path)
 except OSError:
@@ -35,7 +36,7 @@ for i in range(len(url)):
 # Send an HTTP request to the download link
     r = requests.get(url[i])
 # Save the response content to a file
-    open(file_names[i], 'wb').write(r.content)
+    open(file_path[i], 'wb').write(r.content)
 print("Files downloaded...")
 
 
@@ -43,8 +44,8 @@ print("Files downloaded...")
 X = pd.read_csv(os.path.join('data','X_train.csv'))
 Y = pd.read_csv(os.path.join('data','Y_train.csv'))
 # 2 - Perform any data cleaning and split into private train/test subsets
-def split_data(X, Y, test_size=0.2, random_state=57):
-    X_test, X_train, Y_test, Y_train = train_test_split(X, Y, test_size=test_size, random_state=random_state)
+def split_data(X, Y, test_size=0.2, random_state=57): 
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=test_size, random_state=random_state)
     return X_train, X_test, Y_train, Y_test
 
 # specify the random_state to ensure reproducibility
