@@ -8,12 +8,14 @@ import os
 
 # file source:
 # https://www.kaggle.com/datasets/moussasacko/rakuten-france-multimodal-product-classification?resource=download
-url = ["https://drive.google.com/uc?export=download&id=1gUMr9ltyFB5P2fHsM-tlJfO3PWMxx25k","https://drive.google.com/uc?export=download&id=1Y3XLmowrwstA4OCgsvopnhuSDJBRBwH1"]
+url = ["https://drive.google.com/uc?export=download&id=1gUMr9ltyFB5P2fHsM-tlJfO3PWMxx25k",
+       "https://drive.google.com/uc?export=download&id=1Y3XLmowrwstA4OCgsvopnhuSDJBRBwH1",
+       "https://drive.google.com/uc?export=download&id=1JcTua0Ze5QWPLQSn18Dvcv2pElnRHhme"
+       ]
 
 
 
 public_path = "./data/public/"
-raw_path = "./data/raw/"
 private_path = "./data/"
 
 file_names = ['X_train.csv', 'Y_train.csv'] 
@@ -30,13 +32,30 @@ except OSError:
     os.mkdir(public_path)
     
 print("Downloading the data files. This could take a couple of minutes...")   
-for i in range(len(url)):
+for i in range(2):
 # Send an HTTP request to the download link
     r = requests.get(url[i])
 # Save the response content to a file
     open(file_path[i], 'wb').write(r.content)
-print("Files downloaded...")
 
+
+
+print("Downloading the images. this will take a while...")   
+r = requests.get(url[2])
+file_name = 'images.zip'
+file_path = os.path.join(private_path, file_name) 
+# Save the response content to a file
+open(file_path, 'wb').write(r.content)
+
+print("All files downloaded...")
+print(file_path)
+# 1 - Unzip the images"
+def unzip_images(file_path):
+    import zipfile
+    with zipfile.ZipFile(file_path, 'r') as zip_ref:
+        zip_ref.extractall(public_path)
+    return  None
+unzip_images(file_path)
 
 
 X = pd.read_csv(os.path.join('data','X_train.csv'))
