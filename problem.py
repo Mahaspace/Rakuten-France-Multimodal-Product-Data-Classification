@@ -56,20 +56,19 @@ def get_cv(X, y):
 
 
 def _read_data(path, f_name):
-    data_x = pd.read_csv(os.path.join(path, "data", f_name[0]))
-    X_df = data_x[_features_name]
-    data_y = pd.read_csv(os.path.join(path, "data", f_name[1]))
-    y_array = data_y[_target_column_name]
+    data = pd.read_csv(os.path.join(path, "data", "public", f_name))
+    X_df = data[_features_name]
+    y_array = data[_target_column_name]
     return X_df, y_array
 
 
 def get_train_data():
     path = "."
-    f_name = ["X_train", "y_train"]
+    f_name = "train.csv"
     return _read_data(path, f_name)
 
 
 def get_test_data():
     path = "."
-    f_name = ["X_test", "y_test"]
+    f_name = "test.csv"
     return _read_data(path, f_name)
