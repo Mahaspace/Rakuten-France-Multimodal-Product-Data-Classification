@@ -21,7 +21,7 @@ The data can be download using the following command :
 
 # Getting started
 
-You can open the rakuten_notebook_v2 so you can have a brief introduction to the data and what the challenge is about.
+You can open the [rakuten notebook](./rakuten_notebook.ipynb) so you can have a brief introduction to the data and what the challenge is about.
 
 We provide a dummy classifier for the problem, the submissions should be based on the same structure.
 
