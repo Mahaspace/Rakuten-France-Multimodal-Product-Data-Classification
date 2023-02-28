@@ -35,11 +35,10 @@ class Classifier(object):
             2705,
             2905,
         ]
-        
         self.n_classes = len(classes)
         pass
 
-    def predict(self, X_train):
+    def predict_proba(self, X_train):
         
         proba = np.random.rand(len(X_train), self.n_classes)
         proba /= proba.sum(axis=1)[:, np.newaxis]
