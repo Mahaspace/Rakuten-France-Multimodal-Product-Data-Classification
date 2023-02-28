@@ -57,9 +57,7 @@ def get_cv(X, y):
 
 def _read_data(path, f_name):
     data = pd.read_csv(os.path.join(path, "data", "public", f_name))
-    X_df = data[_features_name]
-    y_array = data[_target_column_name]
-    return X_df, y_array
+    return data
 
 
 def get_train_data(path = "."):
