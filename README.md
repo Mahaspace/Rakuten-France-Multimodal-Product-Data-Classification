@@ -16,7 +16,7 @@ This project has beeen realised in the Data Science Master of the Paris Polytech
 The data can be download using the following command :
 
 ```
-    python3 download_data.py [download_token]
+    python3 download_data.py
 ```
 
 # Getting started
