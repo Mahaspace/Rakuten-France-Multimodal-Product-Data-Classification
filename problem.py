@@ -4,7 +4,7 @@ import rampwf as rw
 from sklearn.metrics import f1_score
 from sklearn.model_selection import ShuffleSplit
 
-_features_name = ["designation", "description", "productid", "imageid"]
+_features_name = ["Unnamed: 0", "designation", "description", "productid", "imageid"]
 
 _target_column_name = "prdtypecode"
 
@@ -45,7 +45,7 @@ Predictions = rw.prediction_types.make_multiclass(label_names=_prediction_label_
 workflow = rw.workflows.Classifier()
 
 score_types = [
-    rw.score_types.f1_above(name="F1_score"),
+    rw.score_types.f1_above,
     rw.score_types.Accuracy(name="acc"),
 ]
 
@@ -62,13 +62,13 @@ def _read_data(path, f_name):
     return X_df, y_array
 
 
-def get_train_data():
+def get_train_data(path = "."):
     path = "."
     f_name = "train.csv"
     return _read_data(path, f_name)
 
 
-def get_test_data():
+def get_test_data(path = "."):
     path = "."
     f_name = "test.csv"
     return _read_data(path, f_name)
