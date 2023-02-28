@@ -6,3 +6,5 @@ seaborn
 scipy
 scikit-learn
 google-api-python-client
+PIL
+pyarrow
