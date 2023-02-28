@@ -1,5 +1,4 @@
 # Rakuten-France-Multimodal-Product-Data-Classification
-Ramp challenge
 
 This project has beeen realised in the Data Science Master of the Paris Polytechnique institute (M2DS) for the Datacamp class.
 
