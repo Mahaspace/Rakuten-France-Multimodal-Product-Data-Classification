@@ -1,4 +1,4 @@
-name: ramp-rakuten-product-classification
+name: Rakuten France Multimodal Product Data Classification
 channels:
   - conda-forge
   - defaults
@@ -9,6 +9,8 @@ dependencies:
   - pandas
   - matplotlib
   - seaborn
+  - pillow
+  - zipfile
 
   # Extra requirements
   # - tensorflow-gpu
@@ -18,7 +20,6 @@ dependencies:
 
   - pip
   - pip:
-    - osfclient
     - ramp-workflow
     - ramp-utils
 
@@ -26,4 +27,3 @@ dependencies:
 #     Extra requirements pip
 #     - xgboost
 #     - catboost
-#     - zipfile
